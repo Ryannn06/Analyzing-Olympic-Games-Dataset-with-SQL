@@ -5,7 +5,7 @@ WITH region_games AS (
     ON ath.noc = reg.noc
     GROUP BY ath.games, reg.region -- group by games, region
 )
-SELECT games, COUNT(*) 
+SELECT games, COUNT(*) AS total_participants
 FROM region_games
 GROUP BY games
 ORDER BY games;
