@@ -19,6 +19,7 @@ The goal of this project is to conduct data exploration, aggregation, and growth
 - CTEs (Common Table Expressions): For modular and readable query building
 - JOIN operations: To combine athlete and region data
 - Window functions: Utilized SUM(), OVER(), and RANK() for running totals and rankings
+- GROUP BY and ROLLUP: For data aggregation and generating subtotal or summary rows
 - Aggregation functions: Used COUNT(DISTINCT) and MAX() for summarizing data
 - Filtering and ordering: Applied WHERE, ORDER BY, and subqueries for precise analysis
 - CROSSTAB: To pivot and compare medal counts across countries and medal types
