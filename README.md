@@ -81,4 +81,4 @@ Dataset by [heesoo37](https://www.kaggle.com/heesoo37) on Kaggle.
 Thanks to the open-source data community for making this analysis possible!
 
 And special thanks to [TechTFQ](https://techtfq.com/blog/practice-writing-sql-queries-using-real-dataset#google_vignette) 
-for providing valuable guidance and examples that helped structure and refine the SQL analysis in this project.
+for providing valuable guidance and examples that inspired and refined the SQL analysis in this project.
