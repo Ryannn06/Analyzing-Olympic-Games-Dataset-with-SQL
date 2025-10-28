@@ -21,9 +21,11 @@ The goal of this project is to conduct data exploration, aggregation, and growth
 - Window functions: Utilized SUM(), OVER(), and RANK() for running totals and rankings
 - Aggregation functions: Used COUNT(DISTINCT) and MAX() for summarizing data
 - Filtering and ordering: Applied WHERE, ORDER BY, and subqueries for precise analysis
+- CROSSTAB: To pivot and compare medal counts across countries and medal types
 <br><br>
-## 💡 Example Query
+## 💡 Example Queries
 ```sql
+-- olympics rolling total participants and growth rate
 WITH athlete_region AS (
     SELECT *
     FROM athlete_event
@@ -49,6 +51,47 @@ SELECT
     ), 0) AS growth_rate_in_pct                      
 FROM participant_cte
 ORDER BY games;
+```
+```sql
+-- top 10 athletes who earn most gold medals
+SELECT 
+    name, 
+    team, 
+    COUNT(medal) AS total_gold_medals,
+    DENSE_RANK() OVER(ORDER BY COUNT(medal) DESC)
+FROM athlete_event
+WHERE medal = 'Gold'
+GROUP BY name, team
+ORDER BY total_gold_medals DESC
+LIMIT 10;
+```
+```sql
+-- medal counts across countries and medal types
+CREATE EXTENSION IF NOT EXISTS tablefunc;
+SELECT 
+    * ,
+    COALESCE("Gold", 0) + COALESCE("Silver", 0) + COALESCE("Bronze", 0) AS total_medals
+FROM CROSSTAB($$
+    WITH medal_region AS (
+        SELECT reg.region, ath.medal
+        FROM region reg
+        JOIN athlete_event ath
+        ON reg.noc = ath.noc
+    )
+    SELECT 
+        region AS country,
+        medal,
+        COUNT(medal) as total_medal
+    FROM medal_region
+    WHERE medal IS NOT NULL
+    GROUP BY region, medal
+    $$, 
+    $$ VALUES ('Gold'), ('Silver'), ('Bronze') $$
+) AS ct (Country VARCHAR,
+           "Gold" INT,
+           "Silver" INT,
+           "Bronze" INT)
+ORDER BY total_medals DESC;
 ```
 <br><br>
 ## ⚙️ Tools Used
