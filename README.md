@@ -7,20 +7,20 @@ Dataset used: [Olympic Games Dataset in Kaggle](https://www.kaggle.com/datasets/
 The goal of this project is to conduct data exploration, aggregation, and growth analysis to uncover how the Olympics have expanded globally over time.
 <br><br>
 ## 🧠 Key Insights
-- The number of participating nations increased significantly after 1980, showing the growing global reach of the Olympics.
-- The Summer Olympics consistently have more participants compared to the Winter Olympics.
-- USA had the most total no. of medals.
-- Philippines won most of its medals in Boxing.
-- Sports like Aeronautics, Basque Pelota, and Cricket were only played once in Olympics.
-- Charles Jacobus and Oscar Swahn were the oldest athlete to win gold medal.
-- Michael Fred Phelps II was the athlete who most won gold medals.
+- 🌍 The number of participating nations increased significantly after 1980, reflecting the growing global reach of the Olympics.
+- ☀️ The Summer Olympics consistently have more participants than the Winter Olympics.
+- 🇺🇸 The USA earned the most total medals overall.
+- 🇵🇭 The Philippines earned most of its Olympic medals in Boxing.
+- 🏏 Sports such as Aeronautics, Basque Pelota, and Cricket were featured only once in the Olympics.
+- 🥇 Charles Jacobus and Oscar Swahn were the oldest athletes to win a gold medal.
+- 🏊‍♂️ Michael Fred Phelps II holds the record for winning the most gold medals in Olympic history.
 <br><br>
 ## 🧩 SQL Techniques Used
-- CTEs (Common Table Expressions) for modular query building
-- JOIN operations to combine athlete and region data
-- Window functions (SUM, OVER, RANK)
-- Aggregation using COUNT(DISTINCT), MAX
-- WHERE Clause, ORDER BY and Subqueries
+- CTEs (Common Table Expressions): For modular and readable query building
+- JOIN operations: To combine athlete and region data
+- Window functions: Utilized SUM(), OVER(), and RANK() for running totals and rankings
+- Aggregation functions: Used COUNT(DISTINCT) and MAX() for summarizing data
+- Filtering and ordering: Applied WHERE, ORDER BY, and subqueries for precise analysis
 <br><br>
 ## 💡 Example Query
 ```sql
